@@ -73,6 +73,7 @@ function MyCtrl($scope, prompt) {
 ```
 
 currently supported for `type` are `text`, `textarea`, and `select`
+
 `values` is currently only used by `select` to define possible options
 
  - #### options.buttons
