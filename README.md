@@ -63,7 +63,8 @@ function MyCtrl($scope, prompt) {
  Type: `Array`  
  Default: `[]`  
  Array of JSON objects representing form fields. formatted as follows:
-```{
+```json
+{
     name:'string', 
     label:'string', 
     type:'string', 
