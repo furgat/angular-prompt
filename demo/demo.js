@@ -4,12 +4,12 @@ angular.module('app').controller('DemoCtrl',function($scope,prompt){
 
     $scope.options = {
         title: 'Title',
-        message:'Message',
-        input:false,
-        label:'Input label',
-        value:'Input initial value',
-        values:'',
-        buttons:''
+        message: 'Message',
+        inputs: [], // {name:string, label:string, type:string, values:[string]}
+        buttons: [
+            {label:'Cancel',cancel:true},
+            {label:'OK',primary:true}
+        ]
     };
 
     var processOptions = function(){
@@ -33,8 +33,7 @@ angular.module('app').controller('DemoCtrl',function($scope,prompt){
         }
 
         if (!options.input){
-            options.input = undefined;
-            options.value = undefined;
+            options.inputs = undefined;
             options.values = undefined;
             options.label = undefined;
         }

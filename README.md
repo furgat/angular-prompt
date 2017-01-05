@@ -10,11 +10,6 @@ This library depends on [angular-ui-bootstrap](https://github.com/angular-ui/boo
 
 ## Getting Started
 
-Install with Bower or download the the files directly from the dist folder in the repo.
-```bash
-bower install angular-prompt --save
-```
-
 Add `dist/angular-prompt.js` to your index.html.  
 
 Add `cgPrompt` as a module dependency for your module.
@@ -64,25 +59,20 @@ function MyCtrl($scope, prompt) {
  Default: `''`  
  The message inside the dialog.
 
- - #### options.input
- Type: `Boolean`  
- Default: `false`  
- Set to `true` if you wish to prompt the user for a text value.
+ - #### options.inputs
+ Type: `Array`  
+ Default: `[]`  
+ Array of JSON objects representing form fields. formatted as follows:
+```{
+    name:'string', 
+    label:'string', 
+    type:'string', 
+    values:['string', ...]
+}
+```
 
- - #### options.label
- Type: `String`  
- Default: `''`  
- The label for the input if `input=true`.
-
- - #### options.value
- Type: `String`  
- Default: `''`  
- The initial value of the input if `input=true`.
-
- - #### options.values
- Type: `Array` of `String`  
- Default: `undefined`  
- A list of values available in a dropdown for the user to select as the input value.
+currently supported for `type` are `text`, `textarea`, and `select`
+`values` is currently only used by `select` to define possible options
 
  - #### options.buttons
  Type: `Array` of `Object` with properties `label`,`cancel`, `style`, and `primary`  
@@ -92,13 +82,4 @@ function MyCtrl($scope, prompt) {
 The function returns a promise.  That promise is resolved with either the button that was pressed, or in the case of input prompts, the value the user entered.  If the user pressed a button where `cancel=true` or canceled the dialog another way (hit ESC, etc) then the promise is rejected.
 
 ## Release History
- * v1.2.0
-    * Moved to Angular 1.5 and UI Bootstrap 1.3.
-    * Refactored code to no longer use angular.element(...).scope().
- * v1.1.0
-    * Added `style` option to buttons.
- * v1.0.1
-    * Updated modal template with correct modal title class.
-    * Added bower_components to ignore in bower.json.
-    * Moved to angular-bootstrap v0.11.
- * v1.0.0 - Initial release.
+ * v1.0.0 - Initial release, forked from [cgross/angular-prompt](https://github.com/cgross/angular-prompt)
