@@ -63,14 +63,7 @@ function MyCtrl($scope, prompt) {
  Type: `Array`  
  Default: `[]`  
  Array of JSON objects representing form fields. formatted as follows:
-```json
-{
-    name:'string', 
-    label:'string', 
-    type:'string', 
-    values:['string', ...]
-}
-```
+`{ name:'string', label:'string', type:'string', values:['string', ...] }`
 
 currently supported for `type` are `text`, `textarea`, and `select`
 
