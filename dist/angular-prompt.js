@@ -35,11 +35,7 @@ angular.module('cgPrompt').factory('prompt',['$uibModal','$q',function($uibModal
                 }
             }
         }).result.then(function(result){
-            if (options.inputs.length > 0){
-                defer.resolve(result.input);
-            } else {
-                defer.resolve(result.button);
-            }
+            defer.resolve(result);
         }, function(){
             defer.reject();
         });

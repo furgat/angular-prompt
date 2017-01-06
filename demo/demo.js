@@ -58,7 +58,6 @@ angular.module('app').controller('DemoCtrl',function($scope,prompt){
         var options = processOptions();
 
         prompt(options).then(function(results){
-            console.log(results);
             $scope.results = JSON.stringify(results,null,'\t');
         },function(){
             $scope.results = 'Promise rejected';
