@@ -64,14 +64,14 @@ function MyCtrl($scope, prompt) {
  Default: `[]`
  A list the form fields to display on the dialog.
  JSON Format: 
- ```json
+ ```
     { 
-        "name":"string",
-        "label":"string",
-        "type":"text|textarea|select|checkbox|radio", 
-        "classes":".css-class", 
-        "required":boolean,
-        "values":["string", ...]
+        name:'string',
+        label:'string',
+        type:'text|textarea|select|checkbox|radio', 
+        classes:'.css-class', 
+        required:boolean,
+        values:['string', ...]
     }
  ```
 
