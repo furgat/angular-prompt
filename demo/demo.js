@@ -6,19 +6,12 @@ angular.module('app').controller('DemoCtrl',function($scope,prompt){
         title: 'Title',
         message: 'Message',
         inputs: [], // {name:string, label:string, type:string, values:[string]}
-        buttons: [
-            {label:'Cancel',cancel:true},
-            {label:'OK',primary:true}
-        ]
+        buttons: ''
     };
 
-    var processOptions = function(){
+    var processOptions = function(){ 
         var options = angular.copy($scope.options);
-
-        if (options.values.length === 0) {
-            options.values = undefined;
-        }
-
+        
         options.buttons = _.chain(options.buttons.split(','))
             .filter(function(val){
                 return val;
@@ -28,16 +21,30 @@ angular.module('app').controller('DemoCtrl',function($scope,prompt){
                 return {label:val,cancel:val.toLowerCase() === 'cancel',primary:val.toLowerCase() === 'ok'};
             })
             .value();
-        if (options.buttons.length === 0) {
+        
+        if (options.buttons.length === 0){
             options.buttons = undefined;
         }
-
-        if (!options.input){
-            options.inputs = undefined;
-            options.values = undefined;
-            options.label = undefined;
+        
+        for (var i = options.inputs.length;i--;) {
+            if (options.inputs[i].values != undefined) {
+                options.inputs[i].values = options.inputs[i].values.split(',');
+            }
         }
+        
+        if (options.inputs.length === 0){
+            options.inputs = undefined;
+        }
+        
         return options;
+    };
+    
+    $scope.addInput = function(){
+        $scope.options.inputs.push({name:'Name',label:'Label',type:'text',values:''});
+    };
+    
+    $scope.delInput = function(index){
+        $scope.options.inputs.splice(index, 1);
     };
 
     $scope.getCode = function(){
@@ -51,6 +58,7 @@ angular.module('app').controller('DemoCtrl',function($scope,prompt){
         var options = processOptions();
 
         prompt(options).then(function(results){
+            console.log(results);
             $scope.results = JSON.stringify(results,null,'\t');
         },function(){
             $scope.results = 'Promise rejected';

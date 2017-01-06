@@ -16,6 +16,8 @@
         border: 1px solid #e1e1e8;
         border-radius: 4px;
     }
+      
+      .checkbox, .radio { white-space: nowrap; margin: 1.5em; }
 
   </style>
 
@@ -45,37 +47,56 @@
                   </div>
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox" ng-model="options.input"> Input
-                        </label>
+                      <div class="button">
+                        <button type="button" class="btn btn-default col-sm-12" ng-click="addInput()"><span class="glyphicon glyphicon-plus"></span> Add a Form Input</button>
                       </div>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label for="label" class="col-sm-2 control-label">Label</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="label" placeholder="label" ng-model="options.label">
-                    </div>
+                  <div ng-repeat="input in options.inputs track by $index">
+                      <div class="form-group">
+                        <label for="{{'nameInput'+$index}}" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="{{'nameInput'+$index}}" placeholder="label" ng-model="input.name">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="{{'labelInput'+$index}}" class="col-sm-2 control-label">Label</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="{{'labelInput'+$index}}" placeholder="Value" ng-model="input.label">
+                        </div>
+                      </div>     
+                      <div class="form-group">
+                        <label for="{{'typeInput'+$index}}" class="col-sm-2 control-label">Type</label>
+                        <div class="col-sm-10">
+                              <select id="{{'typeInput'+$index}}" class="form-control" ng-model="input.type">
+                                <option value="text" selected="selected">Text</option>
+                                <option value="textarea">Textarea</option>
+                                <option value="select">Select</option>
+                                <option value="checkbox">Checkbox</option>
+                                <option value="radio">Radio</option>
+                              </select>
+                        </div>
+                      </div>
+                      <div ng-if="input.type != 'text' && input.type != 'textarea'" class="form-group">
+                        <label for="{{'valuesInput'+$index}}" class="col-sm-2 control-label">Values</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="{{'valuesInput'+$index}}" placeholder="comma separated list" ng-model="options.inputs[$index].values">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="col-sm-offset-2 col-sm-9">
+                      <div class="button">
+                        <button type="button" class="btn btn-danger" ng-click="delInput($index)"><span class="glyphicon glyphicon-trash"></span> Delete {{input.name}}</button>
+                              </div>
+                          </div>
+                      </div>
                   </div>
-                  <div class="form-group">
-                    <label for="value" class="col-sm-2 control-label">Value</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="value" placeholder="Value" ng-model="options.value">
-                    </div>
-                  </div>     
-                  <div class="form-group">
-                    <label for="values" class="col-sm-2 control-label">Values</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="values" placeholder="comma separated list" ng-model="options.values" ng-list>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="buttons" class="col-sm-2 control-label">Buttons</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="buttons" placeholder="comma separated list" ng-model="options.buttons">
-                    </div>
-                  </div>                                         
+                    <div class="form-group">
+                        <label for="buttons" class="col-sm-2 control-label">Buttons</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="buttons" placeholder="comma separated list" ng-model="options.buttons">
+                        </div>
+                      </div> 
                 </form>
             </div>
             <button class="btn btn-lg btn-primary pull-right" ng-click="go()">Prompt</button>
@@ -97,7 +118,7 @@
   <script src="../bower_components/angular/angular.js"></script>
   <script src="../bower_components/underscore/underscore.js"></script>
   <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-  <script src="../angular-prompt.js"></script>
+  <script src="../dist/angular-prompt.js"></script>
   <script src="demo.js"></script> 
 
 </body>

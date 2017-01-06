@@ -7,7 +7,6 @@ angular.module('cgPrompt').factory('prompt',['$uibModal','$q',function($uibModal
         var defaults = {
             title: '',
             message: '',
-            classes: '',
             inputs: [], // {name:string, label:string, type:string, values:[string]}
             buttons: [
                 {label:'Cancel',cancel:true},
@@ -20,7 +19,7 @@ angular.module('cgPrompt').factory('prompt',['$uibModal','$q',function($uibModal
         }
 
         for (var key in defaults) {
-            if (options[key] === undefined) {
+            if (options[key] === undefined){
                 options[key] = defaults[key];
             }
         }
@@ -28,9 +27,9 @@ angular.module('cgPrompt').factory('prompt',['$uibModal','$q',function($uibModal
         var defer = $q.defer();
 
         $uibModal.open({
-            templateUrl:'angular-prompt.html',
+            templateUrl:'../angular-prompt.html', // temporary due to demo location
             controller: 'cgPromptCtrl',
-            resolve: {
+            resolve:{
                 options:function(){
                     return options;
                 }
@@ -53,7 +52,7 @@ angular.module('cgPrompt').factory('prompt',['$uibModal','$q',function($uibModal
 ]);
 
 angular.module('cgPrompt').controller('cgPromptCtrl',['$scope','options','$timeout',function($scope,options,$timeout){
-    $scope.input = [];
+    $scope.cgPromptInput = {};
     
     $scope.options = options;
     $scope.form = {};
@@ -68,7 +67,7 @@ angular.module('cgPrompt').controller('cgPromptCtrl',['$scope','options','$timeo
             return;
         }
         
-        $scope.$close({button:button,input:$scope.input});
+        $scope.$close({button:button,input:$scope.cgPromptInput});
     };
 
     $scope.submit = function(){
@@ -86,10 +85,10 @@ angular.module('cgPrompt').controller('cgPromptCtrl',['$scope','options','$timeo
     $timeout(function(){
         var elem = document.querySelector('#cgPromptInput');
         if (elem) {
-            if (elem.select) {
+            if (elem.select){
                 elem.select();
             }
-            if (elem.focus) {
+            if (elem.focus){
                 elem.focus();
             }
         }

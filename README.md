@@ -6,7 +6,7 @@ This library depends on [angular-ui-bootstrap](https://github.com/angular-ui/boo
 
 ## Demo
 
-Demo currently does not function, and will be updated.
+[Live Demo at furgat.com](http://furgat.com/angular/angular-prompt/demo/)
 
 ## Getting Started
 
@@ -61,11 +61,19 @@ function MyCtrl($scope, prompt) {
 
  - #### options.inputs
  Type: `Array`  
- Default: `[]`  
- Array of JSON objects representing form fields. formatted as follows:
-`{ name:'string', label:'string', type:'string', values:['string', ...] }`.
-currently supported for `type` are `text`, `textarea`, and `select`.
-`values` is currently only used by `select` to define possible options.
+ Default: `[]`
+ A list the form fields to display on the dialog.
+ JSON Format: 
+ ```json
+    { 
+        name:'string',
+        label:'string',
+        type:'text|textarea|select|checkbox|radio', 
+        classes:'.css-class', 
+        required:boolean,
+        values:['string', ...]
+    }
+ ```
 
  - #### options.buttons
  Type: `Array` of `Object` with properties `label`,`cancel`, `style`, and `primary`  
@@ -75,4 +83,5 @@ currently supported for `type` are `text`, `textarea`, and `select`.
 The function returns a promise.  That promise is resolved with either the button that was pressed, or in the case of input prompts, the value the user entered.  If the user pressed a button where `cancel=true` or canceled the dialog another way (hit ESC, etc) then the promise is rejected.
 
 ## Release History
+ * v1.0.1 - Added Checkboxes and Radio Buttons, and fixed the demo.
  * v1.0.0 - Initial release, forked from [cgross/angular-prompt](https://github.com/cgross/angular-prompt)
