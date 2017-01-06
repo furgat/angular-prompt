@@ -27,7 +27,7 @@ angular.module('cgPrompt').factory('prompt',['$uibModal','$q',function($uibModal
         var defer = $q.defer();
 
         $uibModal.open({
-            templateUrl:'../angular-prompt.html', // temporary due to demo location
+            templateUrl:'angular-prompt.html', // temporary due to demo location
             controller: 'cgPromptCtrl',
             resolve:{
                 options:function(){

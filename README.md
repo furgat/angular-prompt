@@ -80,5 +80,4 @@ function MyCtrl($scope, prompt) {
 The function returns a promise.  That promise is resolved with either the button that was pressed, or in the case of input prompts, the value the user entered.  If the user pressed a button where `cancel=true` or canceled the dialog another way (hit ESC, etc) then the promise is rejected.
 
 ## Release History
- * v1.0.1 - Added Checkboxes and Radio Buttons, and fixed the demo.
- * v1.0.0 - Initial release, forked from [cgross/angular-prompt](https://github.com/cgross/angular-prompt)
+ * No releases of this fork yet.
