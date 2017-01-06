@@ -66,12 +66,12 @@ function MyCtrl($scope, prompt) {
  JSON Format: 
  ```json
     { 
-        name:'string',
-        label:'string',
-        type:'text|textarea|select|checkbox|radio', 
-        classes:'.css-class', 
-        required:boolean,
-        values:['string', ...]
+        "name":"string",
+        "label:"string",
+        "type:"text|textarea|select|checkbox|radio", 
+        "classes:".css-class", 
+        "required:boolean,
+        "values":["string", ...]
     }
  ```
 
