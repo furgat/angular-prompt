@@ -35,10 +35,7 @@ function MyCtrl($scope, prompt) {
   prompt({
     title: 'Give me a name',
     message: 'What would you like to name it?',
-    input: true,
-    label: 'Name',
-    value: 'Current name',
-    values: ['other','possible','names']
+    input: { name:'foo', label:'foo label', type:'text' }
   }).then(function(name){
     //the promise is resolved with the user input
   });  
