@@ -67,10 +67,10 @@ function MyCtrl($scope, prompt) {
  ```json
     { 
         "name":"string",
-        "label:"string",
-        "type:"text|textarea|select|checkbox|radio", 
-        "classes:".css-class", 
-        "required:boolean,
+        "label":"string",
+        "type":"text|textarea|select|checkbox|radio", 
+        "classes":".css-class", 
+        "required":boolean,
         "values":["string", ...]
     }
  ```
