@@ -65,7 +65,7 @@ function MyCtrl($scope, prompt) {
     { 
         name:'string',
         label:'string',
-        type:'text|textarea|select|checkbox|radio', 
+        type:'text|textarea|select|multi-select|checkbox|radio', 
         classes:'.css-class', 
         required:boolean,
         values:['string', ...]

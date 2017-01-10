@@ -31,6 +31,13 @@
                         </select>
                     </div>
                     
+                    <div ng-if="option.type=='multi-select'" class="form-group">
+                        <label for="{{'cgPromptInput'+$index}}">{{option.label}}:</label>
+                        <select multiple id="{{'cgPromptInput'+$index}}" class="form-control {{option.classes}}" ng-model="cgPromptInput[option.name]" ng-required="{{option.required}}" ng-change="changed=true">
+                                <option ng-repeat="val in option.values track by $index" value="{{val}}">{{val}}</option>
+                        </select>
+                    </div>
+                    
                     <div ng-if="option.type=='checkbox'" class="form-group">
                         <strong>{{option.label}}</strong>
                         <div ng-repeat="val in option.values track by $index" class="checkbox">
