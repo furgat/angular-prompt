@@ -49,7 +49,7 @@ angular.module('cgPrompt').factory('prompt',['$uibModal','$q',function($uibModal
 
 angular.module('cgPrompt').controller('cgPromptCtrl',['$scope','options','$timeout',function($scope,options,$timeout){
     $scope.cgPromptInput = {};
-    
+
     $scope.options = options;
     $scope.form = {};
 
@@ -62,7 +62,7 @@ angular.module('cgPrompt').controller('cgPromptCtrl',['$scope','options','$timeo
             $scope.changed = true;
             return;
         }
-        
+
         $scope.$close({button:button,input:$scope.cgPromptInput});
     };
 
