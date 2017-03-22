@@ -6,7 +6,7 @@ This library depends on [angular-ui-bootstrap](https://github.com/angular-ui/boo
 
 ## Demo
 
-[Live Demo at furgat.com](http://furgat.com/angular/angular-prompt/demo/)
+[Live Demo at on GitHub](https://furgat.github.io/angular-prompt/)
 
 ## Getting Started
 
@@ -60,13 +60,13 @@ function MyCtrl($scope, prompt) {
  Type: `Array`  
  Default: `[]`
  A list the form fields to display on the dialog.
- JSON Format: 
+ JSON Format:
  ```
-    { 
+    {
         name:'string',
         label:'string',
-        type:'text|textarea|select|multi-select|checkbox|radio', 
-        classes:'.css-class', 
+        type:'text|textarea|select|multi-select|checkbox|radio',
+        classes:'.css-class',
         required:boolean,
         values:['string', ...]
     }
